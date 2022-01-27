@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Ajouter un utilisateur</h2>
+<mat-dialog-content>
+
+  <form class="per-form" [formGroup]="userFormAddNew">
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Nom de l'utilisateur</mat-label>
+      <input formControlName="nom" matInput placeholder="Entrer le nom d'utilisateur" maxlength="50" name="nom" required/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Prenom de l'utilisateur</mat-label>
+      <input formControlName="prenom" matInput placeholder="Entrer le prenom d'utilisateur" maxlength="50"name="prenom" required/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Login Window</mat-label>
+      <input formControlName="login" matInput placeholder="Entrer le login windows d'utilisateur" maxlength="50" name="login" required/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['login'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+      <mat-label>Merci de selectionner le profil</mat-label>
+      <mat-select formControlName="profile" panelClass="my-select-panel-class">
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="Juridique">Juridique</mat-option>
+        <mat-option value="Support SI">Support SI</mat-option>
+        <mat-option value="Comptable">Comptable</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Telephone de l'utilisateur</mat-label>
+      <input type="tel" mask formControlName="telephone" matInput placeholder="Entrer le telephone d'utilisateur" maxlength="50" name="telephone" required/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill"class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Merci de selectionner l'etat d'utilisateur</mat-label>
+      <mat-select formControlName="etat" panelClass="my-select-panel-class" name="etat">
+        <mat-option value="true">Activer</mat-option>
+        <mat-option value="false">Desactvier</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="width: 100%;">
+      <mat-label>Email de l'utilisateur</mat-label>
+      <input formControlName="email" matInput placeholder="Entrer l'amail' d'utilisateur" maxlength="50" name="email" required/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+  <button mat-button color="primary" (click)="ajouterUser()"> Ajouter </button>
+</mat-dialog-actions>
+

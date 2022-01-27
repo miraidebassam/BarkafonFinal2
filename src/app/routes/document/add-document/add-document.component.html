@@ -1,0 +1,108 @@
+<h2 mat-dialog-title>Ajouter un document</h2>
+<mat-dialog-content>
+
+  <form class="per-form" [formGroup]="documentFormAddNew" enctype="multipart/form-data">
+    <br>
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Nom du document</mat-label>
+      <input formControlName="nomDocument" matInput placeholder="Entrer le nom du document" maxlength="50" name="nomDocument" required/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Objet du document</mat-label>
+      <input formControlName="objetDocument" matInput placeholder="Entrer l'objet du document" maxlength="50" name="objet" required/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+      <mat-label>Merci de selectionner le type de document</mat-label>
+      <mat-select formControlName="typeDocument" panelClass="my-select-panel-class">
+        <mat-option value="Judiciaire/Reglementaire">Judiciaire/Reglementaires</mat-option>
+        <mat-option value="Correspondance">Correspondance</mat-option>
+        <mat-option value="Administratifs">Administratifs</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Delai de Reponse</mat-label>
+      <input type="number" mask formControlName="delaiReponse" matInput placeholder="Entrer le delai de reponse" maxlength="50" name="delaiReponse" required/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Date de Reception</mat-label>
+      <input type="date" formControlName="dateNotification" matInput placeholder="Entrer le date notification" maxlength="50" name="dateNotification" required/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['date_notification'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Date d'alerte</mat-label>
+      <input type="date" formControlName="dateAlerte" [(ngModel)]="dateAlerte" matInput placeholder="Entrer la date d'alerte" maxlength="50" name="dateAlerte" required/>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+      <mat-label>Selectionner les Emails a notifier</mat-label>
+      <mat-select multiple formControlName="emails" panelClass="my-select-panel-class">
+        <div fxLayout fxLayoutAlign="center center">
+          <mat-form-field fxFlex="50%">
+            <input type="search" placeholder="Rechercher" formControlName="search" [(ngModel)]="searchText" matInput>
+          </mat-form-field>
+        </div>
+        <mat-option *ngFor="let item of userList | searchFilter: searchText" [value]="item.email">{{ item.email }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+        <!-- <mat-form-field class="example-chip-list" appearance="fill">
+          <mat-label>Emails</mat-label>
+          <mat-chip-list #chipList aria-label="Email selection">
+            <mat-chip [selectable]="selectable"
+                      [removable]="removable">qwer
+              <button matChipRemove *ngIf="removable">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="New Email..."
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
+    -->
+    <mat-form-field appearance="fill"class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Merci de selectionner l'etat du document</mat-label>
+      <mat-select formControlName="statut" panelClass="my-select-panel-class" name="statut">
+        <mat-option value="Ouvert">Ouvert</mat-option>
+        <mat-option value="Cloture">Cloture</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+<!--     <mat-form-field style="margin-left: 5px; width: 49%;">
+      <mat-toolbar>
+      <input [(ngModel)]="piece" readonly name="piece_jointe" mask formControlName="piece_jointe" matInput maxlength="50" />
+      <input type="file" #UploadFileInput id="fileUpload" (change)="fileChangeEvent($event)" name="fileUpload" multiple="multiple" />
+      </mat-toolbar>
+    </mat-form-field>
+ -->
+      <input type="file" class="file-input" formControlName="piece_jointe"
+        (change)="onFileSelected($event)" #fileUpload>
+
+
+      <div class="file-upload">
+        {{piece || "Aucun fichier selectionne."}}
+        <button mat-mini-fab color="primary" class="upload-btn"
+        (click)="fileUpload.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+      </div>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+  <button mat-button color="primary" (click)="ajouterDocument()"> Ajouter </button>
+</mat-dialog-actions>
+

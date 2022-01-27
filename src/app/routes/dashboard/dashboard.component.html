@@ -1,0 +1,81 @@
+<breadcrumb></breadcrumb>
+
+<div class="matero-row" fxLayout="row wrap">
+
+  <!-- Statistics -->
+  <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+    <mat-card [ngClass]="['text-white']" style="background-color: #6366f1;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Documents</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalDocument}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+    <mat-card [ngClass]="['text-white']" style="background-color: #4299e1;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Contrats</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalContrat}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+    <mat-card [ngClass]="['text-white']" style="background-color: #38b2ac;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Partenaires</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalClients}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+    <mat-card [ngClass]="['text-white']" style="background-color: #48bb78;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Utilisateurs</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalUtilisateur}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+
+  <!-- Charts -->
+
+  <div class="matero-col" fxFlex="100" fxFlex.gt-sm="60">
+    <mat-card>
+      <mat-card-subtitle>Traffic</mat-card-subtitle>
+      <div id="chart"></div>
+    </mat-card>
+  </div>
+  <div class="matero-col" fxFlex="100" fxFlex.gt-sm="40">
+    <mat-card>
+      <mat-card-subtitle>Weekly Revenue</mat-card-subtitle>
+      <div id="chart2"></div>
+    </mat-card>
+  </div>
+</div>

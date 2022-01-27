@@ -1,0 +1,701 @@
+/*     submitForm() {
+      var formData: any = new FormData();
+      formData.append("name", this.form.get('name').value);
+      formData.append("avatar", this.form.get('avatar').value);
+
+      this.http.post('http://localhost:4000/api/create-user', formData).subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      )
+    }
+ */
+
+  /*     this.dossierService.addDossier(this.dossierFormAddNew.value).subscribe((result)=>{
+      if(result !==null){
+        console.log("Enregistrement effectué avec succès!!!", "Information")
+      }
+    });
+    */
+
+
+        /* if (fileInput.target.files && fileInput.target.files[0]) {
+      this.piece = fileInput.target.files[0];
+      this.piece = '';
+      Array.from(fileInput.target.files).forEach((file: File) => {
+        console.log(file);
+        this.piece += file.name + ',';
+      });
+
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const image = new Image();
+        image.src = e.target.result;
+        image.onload = rs => {
+
+          // Return Base64 Data URL
+          const imgBase64Path = e.target.result;
+
+        };
+      }; */
+
+
+      /*   selectSearch(value: string) {
+    let filter = value.toLowerCase();
+    for(let i = 0 ; i < this.meta.data.length ; i++) {
+      let option = this.meta.data[i];
+      if( option.name.toLowerCase().indexOf(filter) >= 0 ) {
+        this.clientList.push(option);
+      }
+    }
+  }
+
+ */
+
+  /* filter(filter: string): User[] {
+    this.lastFilter = filter;
+    if (filter) {
+      return this.users.filter(option => {
+        return option.firstname.toLowerCase().indexOf(filter.toLowerCase()) >= 0
+          || option.lastname.toLowerCase().indexOf(filter.toLowerCase()) >= 0;
+      })
+    } else {
+      return this.users.slice();
+    }
+  } */
+
+
+
+/*   searchDossier(key: string): void {
+    const result : Dossier[] = [];
+    for( const dossier of this.dossierData){
+      if(dossier.nom_cocontractant.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.lieu_execution.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.client.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.duree.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.date_fin.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.emails.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.montant.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.reference.toLowerCase().indexOf(key.toLowerCase()) != -1
+        || dossier.piece_jointe.toLowerCase().indexOf(key.toLowerCase()) != -1){
+          result.push();
+      }
+      this.dossierData = result;
+      if(result.length === 0 || !key){
+        this.loadDossier();
+      }
+    }
+  }
+ */
+
+
+    /* if (fileInput.target.files && fileInput.target.files[0]) {
+      this.piece = fileInput.target.files[0];
+      this.piece = '';
+      Array.from(fileInput.target.files).forEach((file: File) => {
+        console.log(file);
+        this.piece += file.name + ',';
+      });
+
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const image = new Image();
+        image.src = e.target.result;
+        image.onload = rs => {
+
+          // Return Base64 Data URL
+          const imgBase64Path = e.target.result;
+
+        };
+      }; */
+
+
+/*     var formData: any = new FormData();
+    formData.append('intitule', this.notifFormAddNew.get('intitule').value);
+    formData.append('objetEmail', this.notifFormAddNew.get('objetEmail').value);
+    formData.append('listeAdresse', this.notifFormAddNew.get('listeAdresse').value);
+    formData.append('contenu', this.notifFormAddNew.get('contenu').value);
+    formData.append('fichier', this.piece);
+    formData.append('dateNotif', this.notifFormAddNew.get('dateNotif').value);
+    formData.append('datePremierNotif', this.notifFormAddNew.get('datePremierNotif').value);
+    formData.append('dateSecondNotif', this.notifFormAddNew.get('dateSecondNotif').value);
+    formData.append('etat', this.notifFormAddNew.get('etat').value);
+    formData.append('id_contrat', this.notifFormAddNew.get('id_contrat').value);
+    formData.append('id_document', this.notifFormAddNew.get('id_document').value);
+
+    this.http.post('http://localhost:8197/api/notification/add', formData).subscribe(
+      (response) => console.log(response),
+      (err) => console.log(err)
+    )
+    this.dialogRef.close();
+ */
+
+
+
+    /*     var formData: any = new FormData();
+    formData.set('intitule', this.notifFormModif.get('intitule').value);
+    formData.set('objetEmail', this.notifFormModif.get('objetEmail').value);
+    formData.set('listeAdresse', this.notifFormModif.get('listeAdresse').value);
+    formData.set('contenu', this.notifFormModif.get('contenu').value);
+    formData.set('fichier', this.notifFormModif.get('fichier').value);
+    formData.set('dateNotif', this.notifFormModif.get('dateNotif').value);
+    formData.set('datePremierNotif', this.notifFormModif.get('datePremierNotif').value);
+    formData.set('datePremierNotif', this.notifFormModif.get('datePremierNotif').value);
+    formData.set('dateSecondNotif',this.notifFormModif.get('dateSecondNotif').value);
+    formData.set('etat',this.notifFormModif.get('etat').value);
+
+    this.http.put('http://localhost:8197/api/notification/notification-upd/'+this.notification.id, formData).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    )
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+      <mat-tab-group>
+      <mat-tab label="First">
+        <mat-dialog-content>
+          <mat-card-title>Ajouter un contrat</mat-card-title>
+          <form class="per-form" [formGroup]="dossierFormAddNew">
+
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Nom du Cocontractant</mat-label>
+              <input formControlName="nom_cocontractant" matInput placeholder="Entrer le nom du contrat" maxlength="50" name="nom_cocontractant" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Lieux d'execution</mat-label>
+              <input formControlName="lieu_execution" matInput placeholder="Entrer le lieu d'execution du contrat" maxlength="50"name="lieu_execution" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Montant du contrat</mat-label>
+              <input formControlName="montant" matInput placeholder="Entrer le montant du contrat" maxlength="50"name="montant" />
+            </mat-form-field>
+
+            <br>
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Date de signature</mat-label>
+              <input type="date" mask formControlName="date_signature" matInput placeholder="Entrer le data_signature" maxlength="50" name="date_signature" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Duree du contrat</mat-label>
+              <input type="duree" mask formControlName="duree" matInput placeholder="Entrer le duree_contrat" maxlength="50" name="duree" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Date de fin du contrat</mat-label>
+              <input type="date" mask formControlName="date_fin" matInput placeholder="Entrer le date_fin_contrat" maxlength="50" name="date_fin" />
+            </mat-form-field>
+
+            <br>
+            <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+              <mat-label>Type de contrat</mat-label>
+              <mat-select formControlName="type" panelClass="my-select-panel-class">
+                <mat-option value="Achat">Achat</mat-option>
+                <mat-option value="Bail">Bail</mat-option>
+                <mat-option value="Prestation de service">Prestation de Service</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+              <mat-label>Selectionner le sous type de contrat</mat-label>
+              <mat-select formControlName="sous_typologie" panelClass="my-select-panel-class">
+                <mat-option value="Mobilier">Mobilier</mat-option>
+                <mat-option value="Immobilier">Immobilier</mat-option>
+                <mat-option value="Sites">Sites</mat-option>
+                <mat-option value="Accueils commerciaux">Accueils commerciaux</mat-option>
+                <mat-option value="Rèsidentiel">Rèsidentiel</mat-option>
+                <mat-option value="Evènementiels/Sponsoring">Evènementiels/Sponsoring</mat-option>
+                <mat-option value="Municipalite">Municipalite</mat-option>
+                <mat-option value="Partenaires sous-traitants">Partenaires sous-traitants</mat-option>
+                <mat-option value="Sites">Presse</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Reference du contrat</mat-label>
+              <input formControlName="reference" matInput placeholder="Entrer reference_contrat" maxlength="50" name="reference" />
+            </mat-form-field>
+
+            <br>
+            <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+              <mat-label>Date d'alerte</mat-label>
+              <input type="date" mask formControlName="date_alerte" matInput placeholder="Entrer le date_alerte" maxlength="50" name="date_alerte" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+              <mat-label>Emails</mat-label>
+              <mat-select formControlName="emails" panelClass="my-select-panel-class">
+                <div fxLayout fxLayoutAlign="center center">
+                  <mat-form-field fxFlex="50%">
+                    <input type="search" formControlName="search" placeholder="Entrer le NIF du client" [(ngModel)]="searchText" matInput>
+                  </mat-form-field>
+                </div>
+                <mat-option>Select</mat-option>
+                <mat-option *ngFor="let item of clientList | searchFilter: searchText" [value]="item.email">{{ item.nif }} - Email: {{ item.email }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+              <mat-label>Client</mat-label>
+              <mat-select formControlName="client" panelClass="my-select-panel-class">
+                <div fxLayout fxLayoutAlign="center center">
+                  <mat-form-field fxFlex="50%">
+                    <input type="search" formControlName="search" placeholder="Entrer le NIF du client" [(ngModel)]="searchText" matInput>
+                  </mat-form-field>
+                </div>
+                <mat-option>Select</mat-option>
+                <mat-option *ngFor="let item of clientList | searchFilter: searchText" [value]="item.nif">{{ item.nom }} NIF: {{ item.nif }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br>
+            <mat-form-field style="margin-left: 5px; width: 50%;">
+              <mat-toolbar>
+              <input [(ngModel)]="piece" readonly name="piece_jointe" mask formControlName="piece_jointe" matInput maxlength="50" />
+              <input type="file" multiple #UploadFileInput id="fileUpload" (change)="onFileChange($event)" name="fileUpload"/>
+              </mat-toolbar>
+            </mat-form-field>
+          </form>
+        </mat-dialog-content>
+
+        <mat-dialog-actions>
+          <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+          <button mat-button color="primary" (click)="ajouterDossier()"> Valider </button>
+        </mat-dialog-actions>
+      </mat-tab>
+
+
+      <mat-tab label="Second">
+        <h2 mat-dialog-title>Ajouter un document</h2>
+      <mat-dialog-content>
+
+      <form class="per-form" [formGroup]="documentFormAddNew" enctype="multipart/form-data">
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Nom du document</mat-label>
+        <input formControlName="nomDocument" matInput placeholder="Entrer le nom du document" maxlength="50" name="nomDocument" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Objet du document</mat-label>
+        <input formControlName="objetDocument" matInput placeholder="Entrer l'objet du document" maxlength="50" name="objet" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Date de Notification</mat-label>
+        <input type="date" formControlName="dateNotification" matInput placeholder="Entrer le date notification" maxlength="50" name="dateNotification" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['date_notification'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+        <mat-label>Merci de selectionner le type</mat-label>
+        <mat-select formControlName="typeDocument" panelClass="my-select-panel-class">
+          <mat-option value="Judiciaire/Reglementaire">Judiciaire/Reglementaires</mat-option>
+          <mat-option value="Correspondance">Correspondance</mat-option>
+          <mat-option value="Administratifs">Administratifs</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Delai de Reponse</mat-label>
+        <input type="text" mask formControlName="delaiReponse" matInput placeholder="Entrer le delai de reponse" maxlength="50" name="delaiReponse" required/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Date d'alerte</mat-label>
+        <input type="date" formControlName="dateAlerte" matInput placeholder="Entrer la date d'alerte" maxlength="50" name="dateAlerte" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['date_notification'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+        <mat-label>Emails</mat-label>
+        <mat-select formControlName="emails" panelClass="my-select-panel-class">
+          <div fxLayout fxLayoutAlign="center center">
+            <mat-form-field fxFlex="50%">
+              <input type="search" formControlName="search" placeholder="Entrer le NIF du client" [(ngModel)]="searchText" matInput>
+            </mat-form-field>
+          </div>
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let item of clientList | searchFilter: searchText" [value]="item.email">{{ item.nif }} - Email: {{ item.email }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill"class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Merci de selectionner l'etat du document</mat-label>
+        <mat-select formControlName="statut" panelClass="my-select-panel-class" name="statut">
+          <mat-option value="Ouvert">Ouvert</mat-option>
+          <mat-option value="Cloture">Cloture</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="margin-left: 5px; width: 46%;">
+        <mat-toolbar>
+        <input [(ngModel)]="piece" readonly name="piece_jointe" mask formControlName="piece_jointe" matInput maxlength="50" />
+        <input type="file" #UploadFileInput id="fileUpload" (change)="fileChangeEvent($event)" name="fileUpload" multiple="multiple" />
+        </mat-toolbar>
+      </mat-form-field>
+
+    </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+    <button mat-button color="primary" (click)="ajouterDocument()"> Ajouter </button>
+    </mat-dialog-actions>
+
+      </mat-tab>
+      <mat-tab label="Third"> Content 3 </mat-tab>
+    </mat-tab-group>
+
+
+    <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 49%;">
+    <mat-label>Nom du document</mat-label>
+    <input formControlName="nomDocument" matInput placeholder="Entrer le nom du document" maxlength="50" name="nomDocument" required/>
+    <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+  </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <mat-dialog-content>
+    <form class="per-form" [formGroup]="dosAddNew">
+      <mat-form-field appearance="fill"class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Merci de selectionner type de dossier</mat-label>
+        <mat-select formControlName="typeDossier" panelClass="my-select-panel-class" #valor name="typeDossier">
+          <mat-option value="Contrat">Contrat</mat-option>
+          <mat-option value="Autre Document">Autres Document</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Nom du Cocontractant</mat-label>
+        <input formControlName="nom_cocontractant" matInput placeholder="Entrer le nom du contrat" maxlength="50" name="nom_cocontractant" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'autreDoc'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Nom du document</mat-label>
+        <input formControlName="nomDocument" matInput placeholder="Entrer le nom du document" maxlength="50" name="nomDocument" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'autreDoc'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Objet du document</mat-label>
+        <input formControlName="objetDocument" matInput placeholder="Entrer l'objet du document" maxlength="50" name="objet" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'autreDoc'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date de Notification</mat-label>
+        <input type="date" formControlName="dateNotification" matInput placeholder="Entrer le date notification" maxlength="50" name="dateNotification" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['date_notification'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" *ngIf="valor.value === 'autreDoc'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Merci de selectionner le type</mat-label>
+        <mat-select formControlName="typeDocument" panelClass="my-select-panel-class">
+          <mat-option value="Judiciaire/Reglementaire">Judiciaire/Reglementaires</mat-option>
+          <mat-option value="Correspondance">Correspondance</mat-option>
+          <mat-option value="Administratifs">Administratifs</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'autreDoc'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Delai de Reponse</mat-label>
+        <input type="text" mask formControlName="delai_reponse" matInput placeholder="Entrer le delai de reponse" maxlength="50" name="delaiReponse" required/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'autreDoc'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date d'alerte</mat-label>
+        <input type="date" formControlName="date_alerte" matInput placeholder="Entrer la date d'alerte" maxlength="50" name="dateAlerte" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['date_notification'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill"class="width-75" *ngIf="valor.value === 'autreDoc'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Merci de selectionner l'etat du document</mat-label>
+        <mat-select formControlName="statut" panelClass="my-select-panel-class" name="statut">
+          <mat-option value="Ouvert">Ouvert</mat-option>
+          <mat-option value="Cloture">Cloture</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Lieux d'execution</mat-label>
+        <input formControlName="lieu_execution" matInput placeholder="Entrer le lieu d'execution du contrat" maxlength="50"name="lieu_execution" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Montant du contrat</mat-label>
+        <input formControlName="montant" matInput placeholder="Entrer le montant du contrat" maxlength="50"name="montant" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date de signature</mat-label>
+        <input type="date" mask formControlName="date_signature" matInput placeholder="Entrer le data_signature" maxlength="50" name="date_signature" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Duree du contrat</mat-label>
+        <input type="duree" mask formControlName="duree" matInput placeholder="Entrer le duree_contrat" maxlength="50" name="duree" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date de fin du contrat</mat-label>
+        <input type="date" mask formControlName="date_fin" matInput placeholder="Entrer le date_fin_contrat" maxlength="50" name="date_fin" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Type de contrat</mat-label>
+        <mat-select formControlName="type" panelClass="my-select-panel-class">
+          <mat-option value="Achat">Achat</mat-option>
+          <mat-option value="Bail">Bail</mat-option>
+          <mat-option value="Prestation de service">Prestation de Service</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Selectionner le sous type de contrat</mat-label>
+        <mat-select formControlName="sous_typologie" panelClass="my-select-panel-class">
+          <mat-option value="Mobilier">Mobilier</mat-option>
+          <mat-option value="Immobilier">Immobilier</mat-option>
+          <mat-option value="Sites">Sites</mat-option>
+          <mat-option value="Accueils commerciaux">Accueils commerciaux</mat-option>
+          <mat-option value="Rèsidentiel">Rèsidentiel</mat-option>
+          <mat-option value="Evènementiels/Sponsoring">Evènementiels/Sponsoring</mat-option>
+          <mat-option value="Municipalite">Municipalite</mat-option>
+          <mat-option value="Partenaires sous-traitants">Partenaires sous-traitants</mat-option>
+          <mat-option value="Sites">Presse</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Reference du contrat</mat-label>
+        <input formControlName="reference" matInput placeholder="Entrer reference_contrat" maxlength="50" name="reference" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date d'alerte</mat-label>
+        <input type="date" mask formControlName="date_alerte" matInput placeholder="Entrer le date_alerte" maxlength="50" name="date_alerte" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" *ngIf="valor.value !== ''" style="margin-left: 5px; width: 32%;">
+        <mat-label>Emails</mat-label>
+        <mat-select formControlName="emails" panelClass="my-select-panel-class">
+          <div fxLayout fxLayoutAlign="center center">
+            <mat-form-field fxFlex="50%">
+              <input type="search" formControlName="search" placeholder="Entrer le NIF du client" [(ngModel)]="searchText" matInput>
+            </mat-form-field>
+          </div>
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let item of clientList | searchFilter: searchText" [value]="item.email">{{ item.nif }} - Email: {{ item.email }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" *ngIf="valor.value === 'contrat'" style="margin-left: 5px; width: 32%;">
+        <mat-label>Client</mat-label>
+        <mat-select formControlName="client" panelClass="my-select-panel-class">
+          <div fxLayout fxLayoutAlign="center center">
+            <mat-form-field fxFlex="50%">
+              <input type="search" formControlName="search" placeholder="Entrer le NIF du client" [(ngModel)]="searchText" matInput>
+            </mat-form-field>
+          </div>
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let item of clientList | searchFilter: searchText" [value]="item.nif">{{ item.nom }} NIF: {{ item.nif }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="valor.value !== ''" style="margin-left: 5px; width: 40%;">
+        <mat-toolbar>
+        <input [(ngModel)]="piece" readonly name="piece_jointe" mask formControlName="piece_jointe" matInput maxlength="50" />
+        <input type="file" multiple #UploadFileInput id="fileUpload" (change)="fileChangeEvent($event)" name="fileUpload"/>
+        </mat-toolbar>
+      </mat-form-field>
+
+      </form>
+
+      <mat-dialog-actions *ngIf="valor.value !== ''">
+        <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+        <button mat-button color="primary" (click)="ajoutDossier()"> Ajouter </button>
+      </mat-dialog-actions>
+
+
+    </mat-dialog-content>
+
+
+
+
+
+
+
+      ajoutDossier(){
+    var formData: any = new FormData();
+    formData.append('nom_cocontractant', this.dosAddNew.get('nom_cocontractant').value);
+    formData.append('lieu_execution', this.dosAddNew.get('lieu_execution').value);
+    formData.append('montant', this.dosAddNew.get('montant').value);
+    formData.append('date_signature', this.dosAddNew.get('date_signature').value);
+    formData.append('duree', this.dosAddNew.get('duree').value);
+    formData.append('date_fin', this.dosAddNew.get('date_fin').value);
+    formData.append('type', this.dosAddNew.get('type').value);
+    formData.append('sous_typologie', this.dosAddNew.get('sous_typologie').value);
+    formData.append('reference', this.dosAddNew.get('reference').value);
+    formData.append('piece_jointe', this.piece);
+    formData.append('date_alerte', this.dosAddNew.get('date_alerte').value);
+    formData.append('emails', this.dosAddNew.get('emails').value);
+    formData.append('client', this.dosAddNew.get('client').value);
+    formData.append('nomDocument', this.dosAddNew.get('nomDocument').value);
+    formData.append('objetDocument', this.dosAddNew.get('objetDocument').value);
+    formData.append('dateNotification', this.dosAddNew.get('dateNotification').value);
+    formData.append('typeDocument', this.dosAddNew.get('typeDocument').value);
+    formData.append('delai_reponse', this.dosAddNew.get('delai_reponse').value);
+    formData.append('date_alerte', this.dosAddNew.get('date_alerte').value);
+    formData.append('statut', this.dosAddNew.get('statut').value);
+    formData.append('typeDossier', this.dosAddNew.get('typeDossier').value);
+
+    this.http.post('http://localhost:8197/api/dossier/addDossier', formData).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    )
+    this.dialogRef.close();
+  }
+
+/*   ajouterDocument(){
+    var formData:any = new FormData();
+    formData.append('nomDocument', this.documentFormAddNew.get('nomDocument').value);
+    formData.append('objetDocument', this.documentFormAddNew.get('objetDocument').value);
+    formData.append('dateNotification', this.documentFormAddNew.get('dateNotification').value);
+    formData.append('typeDocument', this.documentFormAddNew.get('typeDocument').value);
+    formData.append('delaiReponse', this.documentFormAddNew.get('delaiReponse').value);
+    formData.append('dateAlerte', this.documentFormAddNew.get('dateAlerte').value);
+    formData.append('emails', this.documentFormAddNew.get('emails').value);
+    formData.append('statut', this.documentFormAddNew.get('statut').value);
+    formData.append('piece_jointe', this.piece);
+
+    this.http.post('http://localhost:8197/api/document/add', formData).subscribe(
+      (response) => console.log(response),
+      (err) => console.log(err)
+    )
+
+    this.dialogRef.close();
+  }
+ */
+/*   onFileChange(event:any) {
+    for (var i = 0; i < event.target.files.length; i++) {
+        this.piece.push(event.target.files[i]);
+    }
+  }
+ */
+
+
+
+
+
+
+
+
+    <mat-card style="color: coral; background-color: aqua;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Documents</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalDocument}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+    <mat-card style="color: coral; background-color: aqua;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Contrats</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalContrat}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+    <mat-card style="color: coral; background-color: aqua;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Partenaires</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalClients}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+    <mat-card style="color: coral; background-color: aqua;">
+      <mat-card-title class="f-s-12 f-w-100">Total des Utilisateurs</mat-card-title>
+      <mat-card-content>
+        <h2>{{_totalUtilisateur}}</h2>
+        <!-- <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress> -->
+        <small class="text-muted">Barkafon</small>
+      </mat-card-content>
+    </mat-card>
+
+
+    /*     if(event.target.files && event.target.files.length > 0) {
+      this.piece = event.target.files[0];
+      this.documentFormAddNew.get('piece_jointe').setValue(this.piece);
+    }
+  }
+ */
+
+    let emails;
+    console.log("Emails en tableau::::::::", this.selectedValue)
+    //this.selectedValue = this.dossier.emails.split(",");
+    /* this.selectedValue.forEach(value =>{
+      if (emails == "") {
+        emails = emails + value
+      }else{
+        emails = emails + "," + value
+      }
+          //this.selectedValue = this.dossier.emails
+    console.log("Emails en string::::::::::::::", emails);
+    this.dossierFormUpdate.get('emails').setValue(emails);
+    this.dossierService.dossierModifier(this.dossierFormUpdate.value).subscribe((result: Dossier)=>{
+      this.dossierFormUpdate.get('emails').setValue(emails);
+      if(result !== null){
+        console.log("Modification effectué avec succès!!!");
+      }
+    });
+    this.onClose();
+    this.listClient();
+
+    }) */

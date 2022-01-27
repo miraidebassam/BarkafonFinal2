@@ -1,0 +1,83 @@
+{
+  "menu": {
+    "dashboard": "Tableau de bord",
+    "clients": "Gestion des partenaires",
+    "clients.client": "Partenaires",
+    "clients.add-client": "Ajoute nouveau client",
+    "documents": "Gestion des Autres Documents",
+    "documents.document": "Documents",
+    "utilisateur": "Gestion d'utilisateur",
+    "utilisateur.lister": "Utilisateurs",
+    "utilisateur.notification": "Notification",
+    "dossier": "Gestion des Contrats",
+    "dossier.nouveau": "Nouveau",
+    "dossier.lister": "Contrats",
+    "sessions": "Sessions",
+    "sessions.403": "403",
+    "sessions.404": "404",
+    "sessions.500": "500"
+  },
+  "validations": {
+    "required": "Ce champ est requis",
+    "minlength": "Doit comporter au moins {{number}} caractères",
+    "maxlength": "Cette valeur doit être inférieure à {{number}} caractères",
+    "min": "Cette valeur doit être supérieure à {{nombre}}",
+    "max": "Cette valeur doit être inférieure à {{nombre}}",
+    "exist": "La {{valeur}} a existe",
+    "inconsistent": "Incohérent avec {{value}}",
+    "invalid_email": "Email invalide"
+  },
+  "user": {
+    "profile": "profil",
+    "settings": "Les paramètres",
+    "logout": "Se déconnecter"
+  },
+  "login": {
+    "title": "Content de te revoir",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "remember_me": "Souviens-toi de moi",
+    "login": "Connexion",
+    "have_no_account": "Ne pas avoir de compte",
+    "create_one": "Cliquez ici pour en créer un",
+    "please_enter": "Entrez s'il vous plait"
+  },
+  "register": {
+    "welcome": "Welcome",
+    "title": "It only takes a few seconds to create your account",
+    "confirm_password": "Confirm Password",
+    "agree": "I have read and agree to the terms of service",
+    "have_an_account": "Already have an account",
+    "register": "Create account"
+  },
+  "paginator": {
+    "items_per_page_label": "Items per page:",
+    "next_page_label": "Next page",
+    "previous_page_label": "Previous page",
+    "first_page_label": "First page",
+    "last_page_label": "Last page",
+    "range_page_label_1": "no record",
+    "range_page_label_2": "{{startIndex}} - {{endIndex}} of {{length}}"
+  },
+  "table_kitchen_sink": {
+    "position": "Position",
+    "name": "Name",
+    "weight": "Weight",
+    "symbol": "Symbol",
+    "gender": "Gender",
+    "mobile": "Mobile",
+    "tele": "Telephone",
+    "birthday": "Birthday",
+    "city": "City",
+    "address": "Address",
+    "website": "Website",
+    "company": "Company",
+    "email": "Email",
+    "operation": "Operation",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm_delete": "Confirm delete?",
+    "ok": "Ok",
+    "close": "Close"
+  }
+}

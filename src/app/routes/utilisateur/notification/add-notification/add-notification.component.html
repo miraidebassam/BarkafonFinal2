@@ -1,0 +1,166 @@
+<mat-tab-group #matTabGroup mat-align-tabs="center" animationDuration="1000ms" [selectedIndex]="selectedIndex" (click)="tabClick($event)">
+  <mat-tab label="Autres Documents">
+    <form class="per-form" [formGroup]="notifFormAddNew">
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Entitule</mat-label>
+        <input formControlName="intitule" matInput placeholder="Entrer le nom d'utilisateur" maxlength="50" name="intitule" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Objet Email</mat-label>
+        <input formControlName="objetEmail" matInput placeholder="Entrer le prenom d'utilisateur" maxlength="50"name="objetEmail" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Les Adresses</mat-label>
+        <input type="email" multiple formControlName="listeAdresse" matInput placeholder="Entrer les adresses" maxlength="50" name="listeAdresse" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['login'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>dateNotif</mat-label>
+        <input type="date" formControlName="dateNotif" matInput placeholder="Entrer l'amail' d'utilisateur" maxlength="50" name="dateNotif" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date Premier Notification</mat-label>
+        <input type="date" formControlName="datePremierNotif" matInput placeholder="Entrer l'amail' d'utilisateur" maxlength="50" name="datePremierNotif" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date Seconde Notification</mat-label>
+        <input type="date" formControlName="dateSecondNotif" matInput placeholder="Entrer l'amail' d'utilisateur" maxlength="50" name="dateSecondNotif" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill"class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Merci de selectionner l'etat de la notification</mat-label>
+        <mat-select formControlName="etat" panelClass="my-select-panel-class" name="etat">
+          <mat-option value="true">Activer</mat-option>
+          <mat-option value="false">Desactvier</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+        <mat-label>Document</mat-label>
+        <mat-select formControlName="id_document" panelClass="my-select-panel-class">
+          <div fxLayout fxLayoutAlign="center center">
+            <mat-form-field fxFlex="50%">
+              <input type="search" formControlName="search" placeholder="Entrer le nom du contrat" [(ngModel)]="searchText" matInput>
+            </mat-form-field>
+          </div>
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let item of documentList | searchFilter: searchText" [value]="item.id">Document: {{ item.nomDocument }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 99%;">
+        <mat-label>Contenu</mat-label>
+        <textarea mask formControlName="contenu" matInput placeholder="Entrer le contenu d'email" maxlength="50" name="contenu" required></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" class="invisible example-full-width" style="margin-left: 5px; width: 32%;">
+        <mat-label>Type Archive</mat-label>
+        <input formControlName="type_archive" [value]="'Document'" matInput placeholder="Entrer le nom d'utilisateur" maxlength="50" name="type_archive" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+      </mat-form-field>
+
+    </form>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+      <button mat-button color="primary" (click)="ajouterNotif()"> Valider </button>
+    </mat-dialog-actions>
+  </mat-tab>
+
+
+
+
+
+  <mat-tab label="Contrat">
+    <form class="per-form" [formGroup]="notifFormAddNew">
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Entitule</mat-label>
+        <input formControlName="intitule" matInput placeholder="Entrer le nom d'utilisateur" maxlength="50" name="intitule" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Objet Email</mat-label>
+        <input formControlName="objetEmail" matInput placeholder="Entrer le prenom d'utilisateur" maxlength="50"name="objetEmail" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Les Adresses</mat-label>
+        <input type="email" multiple formControlName="listeAdresse" matInput placeholder="Entrer les adresses" maxlength="50" name="listeAdresse" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['login'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>dateNotif</mat-label>
+        <input type="date" formControlName="dateNotif" matInput placeholder="Entrer l'amail' d'utilisateur" maxlength="50" name="dateNotif" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>datePremierNotif</mat-label>
+        <input type="date" formControlName="datePremierNotif" matInput placeholder="Entrer l'amail' d'utilisateur" maxlength="50" name="datePremierNotif" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>dateSecondNotif</mat-label>
+        <input type="date" formControlName="dateSecondNotif" matInput placeholder="Entrer l'amail' d'utilisateur" maxlength="50" name="dateSecondNotif" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill"class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Merci de selectionner l'etat d'utilisateur</mat-label>
+        <mat-select formControlName="etat" panelClass="my-select-panel-class" name="etat">
+          <mat-option value="true">Activer</mat-option>
+          <mat-option value="false">Desactvier</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+        <mat-label>Contrat</mat-label>
+        <mat-select formControlName="id_contrat" panelClass="my-select-panel-class">
+          <div fxLayout fxLayoutAlign="center center">
+            <mat-form-field fxFlex="50%">
+              <input type="search" formControlName="search" placeholder="Entrer le nom du contrat" [(ngModel)]="searchText" matInput>
+            </mat-form-field>
+          </div>
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let item of dossierList | searchFilter: searchText" [value]="item.id">{{ item.reference }} Contractant: {{ item.nom_cocontractant }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 99%;">
+        <mat-label>Contenu</mat-label>
+        <textarea mask formControlName="contenu" matInput placeholder="Entrer le contenu d'email" maxlength="50" name="contenu" required></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="invisible">
+        <input formControlName="type_archive" [value]="'Contrat'" matInput maxlength="50" name="type_archive" required/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+      </mat-form-field>
+
+    </form>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+      <button mat-button color="primary" (click)="ajouterNotif()">Valider</button>
+    </mat-dialog-actions>
+  </mat-tab>
+</mat-tab-group>

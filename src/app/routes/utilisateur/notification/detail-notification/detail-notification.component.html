@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Details de la Notification</h2>
+<mat-dialog-content>
+  <form class="per-form" [formGroup]="notificationFormDetail">
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Entitule</mat-label>
+      <input formControlName="intitule" matInput maxlength="50" name="intitule" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Objet Email</mat-label>
+      <input formControlName="objetEmail" matInput maxlength="50"name="objetEmail" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill" class="width-188" style="margin-left: 5px; width: 100%;">
+      <mat-label>Adresses</mat-label>
+      <input formControlName="listeAdresse" matInput maxlength="50" name="listeAdresse" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['login'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Date Notification</mat-label>
+      <input type="text" formControlName="dateNotif" matInput maxlength="50" name="dateNotif" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Date Premier</mat-label>
+      <input type="text" formControlName="datePremierNotif" matInput maxlength="50" name="datePremierNotif" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Date Second</mat-label>
+      <input type="text" formControlName="dateSecondNotif" matInput maxlength="50" name="dateSecondNotif" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <mat-label>Etat</mat-label>
+      <input type="text" formControlName="etat" matInput maxlength="50" name="etat" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 100%;">
+      <mat-label>Contenu</mat-label>
+      <textarea mask formControlName="contenu" matInput maxlength="50" name="contenu" readonly></textarea>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+</mat-dialog-actions>
+

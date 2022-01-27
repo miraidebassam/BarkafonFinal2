@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>Détails du Client</h2>
+<mat-dialog-content>
+    <form class="per-form" [formGroup]="clientFormDetail">
+
+        <!-- <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <input formControlName="id" readonly matInput placeholder="Entrer le nom du client" maxlength="50" name="id" />
+        </mat-form-field> -->
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Nom du client</mat-label>
+          <input formControlName="nom" matInput placeholder="Entrer le nom du client" maxlength="50" name="nom" readonly/>
+          <!-- <mat-error *ngIf="userFormUpdate.controls['nom'].invalid">Veuillez entrer un nom valide</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Prenom du client</mat-label>
+          <input formControlName="prenom" matInput placeholder="Entrer le prenom du client" maxlength="50"
+            name="prenom" readonly/>
+          <!-- <mat-error *ngIf="userFormUpdate.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Type du client</mat-label>
+          <input formControlName="type_client" matInput maxlength="50"
+            name="type_client" readonly/>
+          <!-- <mat-error *ngIf="userFormUpdate.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>L'adresse du client</mat-label>
+            <input type="tel" mask formControlName="adresse" matInput placeholder="Entrer l'adresse' du client"
+              maxlength="50" name="adresse" readonly/>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Le NIF du client</mat-label>
+            <input type="tel" mask formControlName="nif" matInput placeholder="Entrer le NIF du client"
+              maxlength="50" name="nif" readonly/>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Le telephone du client</mat-label>
+          <input type="tel" mask formControlName="telephone" matInput placeholder="Entrer le telephone du client"
+            maxlength="50" name="telephone" readonly/>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>L'email du client</mat-label>
+          <input type="email" mask formControlName="email" matInput placeholder="Entrer l'email' du client"
+            maxlength="50" name="email" readonly/>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Etat du client</mat-label>
+          <input type="etat" mask formControlName="etat" matInput
+            maxlength="50" name="etat" readonly/>
+        </mat-form-field>
+        <br>
+
+      </form>
+
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close (click)="onClose()">Fermer</button>
+    </mat-dialog-actions>
+
+
+</mat-dialog-content>

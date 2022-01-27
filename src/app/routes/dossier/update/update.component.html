@@ -1,0 +1,227 @@
+<mat-dialog-content>
+  <mat-tab-group dynamicHeight mat-align-tabs="center" animationDuration="1000ms">
+  <mat-tab label="Modifier sans fichier">
+    <h2>Modifier ce contrat</h2>
+      <form class="per-form" [formGroup]="dossierFormUpdate">
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Nom du Cocontractant</mat-label>
+          <input formControlName="nom_cocontractant" matInput placeholder="Entrer le nom du contrat" maxlength="50" name="nom_cocontractant" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Lieux d'execution</mat-label>
+          <input formControlName="lieu_execution" matInput placeholder="Entrer le lieu d'execution du contrat" maxlength="50"name="lieu_execution" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Montant du contrat</mat-label>
+          <input formControlName="montant" matInput placeholder="Entrer le montant du contrat" maxlength="50"name="montant" />
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Date de signature</mat-label>
+          <input type="date" mask formControlName="date_signature" matInput placeholder="Entrer le data_signature" maxlength="50" name="date_signature" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Date de fin du contrat</mat-label>
+          <input type="date" mask formControlName="date_fin" matInput placeholder="Entrer le date_fin_contrat" maxlength="50" name="date_fin" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Duree du contrat</mat-label>
+          <input type="duree" mask formControlName="duree" matInput placeholder="Entrer le duree_contrat" maxlength="50" name="duree" />
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+          <mat-label>Type de contrat</mat-label>
+          <mat-select formControlName="type" panelClass="my-select-panel-class">
+            <mat-option value="Achat">Achat</mat-option>
+            <mat-option value="Bail">Bail</mat-option>
+            <mat-option value="Prestation de service">Prestation de Service</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+          <mat-label>Selectionner le sous type de contrat</mat-label>
+          <mat-select formControlName="sous_typologie" panelClass="my-select-panel-class">
+            <mat-option value="Mobilier">Mobilier</mat-option>
+            <mat-option value="Immobilier">Immobilier</mat-option>
+            <mat-option value="Sites">Sites</mat-option>
+            <mat-option value="Accueils commerciaux">Accueils commerciaux</mat-option>
+            <mat-option value="Rèsidentiel">Rèsidentiel</mat-option>
+            <mat-option value="Evènementiels/Sponsoring">Evènementiels/Sponsoring</mat-option>
+            <mat-option value="Municipalite">Municipalite</mat-option>
+            <mat-option value="Partenaires sous-traitants">Partenaires sous-traitants</mat-option>
+            <mat-option value="Sites">Presse</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Reference du contrat</mat-label>
+          <input formControlName="reference" matInput placeholder="Entrer reference_contrat" maxlength="50" name="reference" />
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Date d'alerte</mat-label>
+          <input type="date" mask formControlName="date_alerte" matInput placeholder="Entrer le date_alerte" maxlength="50" name="date_alerte" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+          <mat-label>Client</mat-label>
+          <mat-select formControlName="client" panelClass="my-select-panel-class">
+            <div fxLayout fxLayoutAlign="center center">
+              <mat-form-field fxFlex="50%">
+                <input type="search" formControlName="search" placeholder="Entrer le NIF du client" [(ngModel)]="searchText" matInput>
+              </mat-form-field>
+            </div>
+            <mat-option *ngFor="let item of profilList | searchFilter: searchText" [value]="item.nif">{{item.nom}} NIF: {{ item.nif }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+          <mat-label>Selectionner les Emails a notifier</mat-label>
+          <mat-select formControlName="emails" multiple [(ngModel)]="selectedValue" panelClass="my-select-panel-class" name="emails">
+            <div fxLayout fxLayoutAlign="center center">
+              <mat-form-field fxFlex="50%">
+                <input type="search" formControlName="search" [(ngModel)]="searchText" placeholder="Rechercher" matInput>
+              </mat-form-field>
+            </div>
+            <mat-option *ngFor="let item of userList | searchFilter: searchText" [value]="item.email">{{ item.email }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+
+      <mat-dialog-actions>
+          <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+          <button mat-button color="primary" (click)="updateSansFichier()">
+            <mat-icon>how_to_reg</mat-icon>Update
+          </button>
+      </mat-dialog-actions>
+  </mat-tab>
+
+
+
+  <mat-tab label="Modifier avec fichier">
+      <h2>Modifier ce contrat</h2>
+      <form class="per-form" [formGroup]="dossierFormUpdate">
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Nom du Cocontractant</mat-label>
+          <input formControlName="nom_cocontractant" matInput placeholder="Entrer le nom du contrat" maxlength="50" name="nom_cocontractant" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Lieux d'execution</mat-label>
+          <input formControlName="lieu_execution" matInput placeholder="Entrer le lieu d'execution du contrat" maxlength="50"name="lieu_execution" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Montant du contrat</mat-label>
+          <input formControlName="montant" matInput placeholder="Entrer le montant du contrat" maxlength="50"name="montant" />
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Date de signature</mat-label>
+          <input type="date" mask formControlName="date_signature" matInput placeholder="Entrer le data_signature" maxlength="50" name="date_signature" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Date de fin du contrat</mat-label>
+          <input type="date" mask formControlName="date_fin" matInput placeholder="Entrer le date_fin_contrat" maxlength="50" name="date_fin" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Duree du contrat</mat-label>
+          <input type="duree" mask formControlName="duree" matInput placeholder="Entrer le duree_contrat" maxlength="50" name="duree" />
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+          <mat-label>Type de contrat</mat-label>
+          <mat-select formControlName="type" panelClass="my-select-panel-class">
+            <mat-option value="Achat">Achat</mat-option>
+            <mat-option value="Bail">Bail</mat-option>
+            <mat-option value="Prestation de service">Prestation de Service</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+          <mat-label>Selectionner le sous type de contrat</mat-label>
+          <mat-select formControlName="sous_typologie" panelClass="my-select-panel-class">
+            <mat-option value="Mobilier">Mobilier</mat-option>
+            <mat-option value="Immobilier">Immobilier</mat-option>
+            <mat-option value="Sites">Sites</mat-option>
+            <mat-option value="Accueils commerciaux">Accueils commerciaux</mat-option>
+            <mat-option value="Rèsidentiel">Rèsidentiel</mat-option>
+            <mat-option value="Evènementiels/Sponsoring">Evènementiels/Sponsoring</mat-option>
+            <mat-option value="Municipalite">Municipalite</mat-option>
+            <mat-option value="Partenaires sous-traitants">Partenaires sous-traitants</mat-option>
+            <mat-option value="Sites">Presse</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+          <mat-label>Reference du contrat</mat-label>
+          <input formControlName="reference" matInput placeholder="Entrer reference_contrat" maxlength="50" name="reference" />
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+          <mat-label>Date d'alerte</mat-label>
+          <input type="date" mask formControlName="date_alerte" [(ngModel)]="dateAlerte" matInput placeholder="Entrer le date_alerte" maxlength="50" name="date_alerte">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+          <mat-label>Client</mat-label>
+          <mat-select formControlName="client" panelClass="my-select-panel-class">
+            <div fxLayout fxLayoutAlign="center center">
+              <mat-form-field fxFlex="50%">
+                <input type="search" formControlName="search" placeholder="Entrer le NIF du client" [(ngModel)]="searchText" matInput>
+              </mat-form-field>
+            </div>
+            <mat-option *ngFor="let item of profilList | searchFilter: searchText" [value]="item.nif">{{item.nom}} NIF: {{ item.nif }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 49%;">
+          <mat-label>Selectionner les Emails a notifier</mat-label>
+          <mat-select formControlName="emails" multiple [(ngModel)]="selectedValue" panelClass="my-select-panel-class" name="emails">
+            <div fxLayout fxLayoutAlign="center center">
+              <mat-form-field fxFlex="50%">
+                <input type="search" formControlName="search" [(ngModel)]="searchText" placeholder="Rechercher" matInput>
+              </mat-form-field>
+            </div>
+            <mat-option *ngFor="let item of userList | searchFilter: searchText" [value]="item.email">{{ item.email }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <input type="file" class="file-input" formControlName="piece_jointe"
+        (change)="onFileSelected($event)" #fileUpload [required]="false">
+
+        <div class="file-upload">
+          {{piece_jointe || "Aucun fichier selectionne."}}
+          <button mat-mini-fab color="primary" class="upload-btn"
+          (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+        </div>
+    </form>
+
+      <mat-dialog-actions>
+          <button mat-button mat-dialog-close (click)="onClose()">Annuler</button>
+          <button mat-button color="primary" (click)="modifierDossier()">
+            <mat-icon>how_to_reg</mat-icon>Update
+          </button>
+      </mat-dialog-actions>
+  </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>

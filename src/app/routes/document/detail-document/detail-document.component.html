@@ -1,0 +1,85 @@
+<h2 mat-dialog-title>Détails du Document</h2>
+<mat-dialog-content>
+  <form class="per-form" [formGroup]="documentFormDetail">
+
+    <!-- <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+      <input formControlName="id" readonly matInput placeholder="Entrer le nom du document" maxlength="50" name="id" />
+    </mat-form-field> -->
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Nom du document</mat-label>
+      <input formControlName="nomDocument" matInput maxlength="50" name="nom" readonly/>
+      <!-- <mat-error *ngIf="userFormUpdate.controls['nom'].invalid">Veuillez entrer un nom valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Objet du document</mat-label>
+      <input formControlName="objetDocument" matInput maxlength="50"
+        name="objetDocument" readonly/>
+      <!-- <mat-error *ngIf="userFormUpdate.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+      <mat-label>Type de document</mat-label>
+      <input type="text" formControlName="typeDocument" matInput maxlength="50"
+      name="typeDocument" readonly/>
+    </mat-form-field>
+
+
+    <br>
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Date de reception</mat-label>
+      <input type="text" formControlName="dateNotification" matInput maxlength="50"
+        name="dateNotification" readonly/>
+      <!-- <mat-error *ngIf="userFormUpdate.controls['login'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Date Premier Notification</mat-label>
+      <input type="date" formControlName="datePremierNotif" matInput maxlength="50" name="datePremierNotif" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Date Seconde Notification</mat-label>
+      <input type="date" formControlName="dateSecondNotif" matInput maxlength="50" name="dateSecondNotif" readonly/>
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Date d'alerte</mat-label>
+      <input type="date" formControlName="dateAlerte" matInput maxlength="50"
+        name="dateAlerte" readonly/>
+      <!-- <mat-error *ngIf="userFormUpdate.controls['login'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Delai de Reponse</mat-label>
+      <input type="tel" mask formControlName="delaiReponse" matInput maxlength="50" name="delaiReponse" readonly/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Etat du document</mat-label>
+      <input type="text" mask formControlName="statut" matInput
+        maxlength="50" name="statut" readonly/>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 99%;">
+      <mat-label>Email a notifier</mat-label>
+      <textarea type="tel" mask formControlName="emails" matInput placeholder="Entrer les emails"
+        maxlength="50" name="emails" readonly></textarea>
+    </mat-form-field>
+
+
+    <br>
+    <button mat-icon-button (click)="downloadFile()"><span class="material-icons">file_download</span>Telecharger piece jointe</button>
+    <br>
+
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onClose()">Fermer</button>
+</mat-dialog-actions>

@@ -1,0 +1,99 @@
+<mat-dialog-content>
+    <mat-card-title>Détails du Dossier</mat-card-title>
+    <form class="per-form" [formGroup]="dossierFormDetail">
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Nom du Cocontractant</mat-label>
+        <input formControlName="nom_cocontractant" matInput placeholder="Entrer le nom du contrat" maxlength="50" name="nom_cocontractant" aria-disabled="true" readonly />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Lieux d'execution</mat-label>
+        <input formControlName="lieu_execution" matInput placeholder="Entrer le lieu d'execution du contrat" maxlength="50"name="lieu_execution" readonly />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Montant du contrat</mat-label>
+        <input formControlName="montant" matInput placeholder="Entrer le montant du contrat" maxlength="50"name="montant" readonly />
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date de signature</mat-label>
+        <input type="date" mask formControlName="date_signature" matInput placeholder="Entrer le data_signature" maxlength="50" name="date_signature" readonly/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Duree du contrat</mat-label>
+        <input type="duree" mask formControlName="duree" matInput placeholder="Entrer le duree_contrat" maxlength="50" name="duree" readonly />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date de fin du contrat</mat-label>
+        <input type="date" mask formControlName="date_fin" matInput placeholder="Entrer le date_fin_contrat" maxlength="50" name="date_fin" readonly />
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+        <mat-label>Type de contrat</mat-label>
+        <input type="text" mask formControlName="type" matInput maxlength="50" name="type" readonly />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+        <mat-label>Sous type de contrat</mat-label>
+        <input formControlName="sous_typologie" matInput maxlength="50" name="sous_typologie" readonly/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Reference du contrat</mat-label>
+        <input formControlName="reference" matInput placeholder="Entrer reference_contrat" maxlength="50" name="reference" readonly/>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date de reception</mat-label>
+        <input type="date" formControlName="dateNotification" matInput maxlength="50" name="dateNotification" readonly/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+        <mat-label>Date d'alerte</mat-label>
+        <input type="text" mask formControlName="date_alerte" matInput placeholder="Entrer le date_alerte" maxlength="50" name="date_alerte" readonly />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="no-label-field" style="margin-left: 5px; width: 32%;">
+        <mat-label>Client</mat-label>
+        <input type="text" mask formControlName="client" matInput  maxlength="50" name="client" readonly/>
+      </mat-form-field>
+
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 99%;">
+        <mat-label>Emails a notifier</mat-label>
+        <textarea type="text" mask formControlName="emails" matInput placeholder="Entrer le emails_alerter" maxlength="50" name="emails" readonly></textarea>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Date Premier Notification</mat-label>
+        <input type="date" formControlName="datePremierNotif" matInput maxlength="50" name="dateNotification" readonly/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 49%;">
+        <mat-label>Date Seconde Notification</mat-label>
+        <input type="date" formControlName="dateSecondNotif" matInput maxlength="50" name="dateSecondNotif" readonly/>
+        <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+      </mat-form-field>
+
+      <br>
+      <button mat-icon-button (click)="downloadFile()"><span class="material-icons">file_download</span>Telecharger piece jointe</button>
+
+
+    </form>
+
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close (click)="onClose()">Fermer</button>
+    </mat-dialog-actions>
+
+  </mat-dialog-content>

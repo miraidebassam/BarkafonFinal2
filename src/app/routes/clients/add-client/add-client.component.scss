@@ -1,0 +1,69 @@
+.st-mod {
+  margin: 10px;
+  width: 100% !important;
+}
+
+.screen {
+  margin: 2px;
+  width: 100%;
+  height: 35px;
+  background-color: #f06d06;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid #000;
+}
+
+.backSeats {
+  div {
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border: 4px solid #000;
+    background-color: #4caf50;
+  }
+}
+
+.leftFloat {
+  float: left;
+  text-align: left;
+  left: 0;
+}
+
+.rightFloat {
+  float: right;
+  text-align: right;
+  right: 0;
+}
+
+#uploadFile {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  opacity: 0;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+}
+
+.pointer {
+  cursor: pointer;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.file-select-button {
+  display: inline-block;
+  margin: 8px;
+}
+
+.file-name {
+  display: inline-block;
+  margin: 8px;
+}
+
+.matero-content {
+  padding: 5px;
+}

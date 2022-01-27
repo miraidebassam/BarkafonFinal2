@@ -1,0 +1,136 @@
+<page-header></page-header>
+<div class="route-content">
+  <mat-card class="dshcard" style="background-color: rgb(250, 143, 82);;">
+    <div class="srn-dhb">
+      <!-- <img src="assets/icon/list_view_96px.png" class="s-img"> -->
+      DOSSIERS</div>
+  </mat-card>
+
+  <div style="margin-bottom: 5px;">
+    <button mat-raised-button (click)="createNewDossier()" *ngIf="isCanCreate">Ajouter nouveau contrat</button>
+  </div>
+
+  <div>
+  <div fxLayout fxLayoutAlign="center center">
+    <mat-form-field fxFlex="50%">
+      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Rechercher">
+    </mat-form-field>
+  </div>
+
+  <div fxLayoutAlign="end start">
+    <button mat-icon-button (click)="exportAsXLSX()"  id="btnXlsRpt" *ngIf="isCanExport">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        width="28" height="30"
+        viewBox="0 0 172 172"
+        style=" fill:#000000;">
+            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+              <path d="M0,172v-172h172v172z" fill="#ffffff"></path>
+            <g>
+              <path d="M143.33333,161.25h-114.66667v-150.5h78.83333l35.83333,35.83333z" fill="#0c7238"></path>
+              <path d="M137.95833,50.16667h-34.04167v-34.04167z" fill="#dcedc8"></path>
+              <path d="M143.33333,161.25v-57.33333h-17.91667v25.08333h-17.91667v9.675l18.06,22.575z" fill="#43a047"></path>
+              <path d="M172,136.16667h-57.33333l28.66667,35.83333z" fill="#455a64"></path>
+              <path d="M132.58333,111.08333h21.5v43h-21.5z" fill="#455a64"></path>
+              <path d="M61.95942,60.91667h13.68117l11.10117,21.5215l11.72825,-21.5215h12.77817l-17.6085,28.66667l18.00983,28.66667h-13.4805l-12.09733,-22.532l-12.04358,22.532h-13.68117l18.30725,-28.77058z" fill="#ffffff"></path>
+            </g>
+          </g>
+      </svg>
+    </button>
+    </div>
+
+  <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort class="mat-elevation-z8" id="excel-table">
+
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="searchText" id="listSearch">
+    </div>
+
+    <ng-container matColumnDef="nom_cocontractant">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cocontractant </th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.nom_cocontractant}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lieu_execution">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Lieu du execution</th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.lieu_execution}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="montant">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Montant</th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.montant}} </td>
+    </ng-container>
+
+
+    <!-- <ng-container matColumnDef="date_signature">
+      <th mat-header-cell *matHeaderCellDef m at-sort-header> Date signature </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{}} </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="duree">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Duree du contrat </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{}} </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="date_fin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date fin de contrat </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type de Contrat </th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sous_typologie">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Sous Type </th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.sous_typologie}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="reference">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Reference </th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.reference}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="date_alerte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date d'alerte </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{}} </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="emails">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Emails </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{}} </td>
+    </ng-container> -->
+
+<!--     <ng-container matColumnDef="piece_jointe">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Piece Jointe </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"><button mat-icon-button><mat-icon>insert_drive_file</mat-icon></button></td>
+    </ng-container>
+ -->
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Partenaire </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.client}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <tr>
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+      </tr>
+      <tr>
+        <th mat-cell *matCellDef="let row" class="action-link" style="width: 5%;">
+          <button mat-icon-button (click)="updateHoldDossier(row)" *ngIf="isCanUpdate"><mat-icon>create</mat-icon></button>
+          <button mat-icon-button (click)="deleteDossier(row)" *ngIf="isCanDelete"><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button (click)="detailDossier(row)" *ngIf="isCanDetail" aria-label="Example icon button with a vertical three dot icon">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            width="24" height="24"
+            viewBox="0 0 172 172"
+            style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,157.38c-39.42209,0 -71.38,-31.95791 -71.38,-71.38v0c0,-39.42209 31.95791,-71.38 71.38,-71.38h0c39.42209,0 71.38,31.95791 71.38,71.38v0c0,39.42209 -31.95791,71.38 -71.38,71.38z"></path><g fill="#000000"><path d="M43.41521,42.11374c-3.52018,0 -6.45386,2.93368 -6.45386,6.45386v12.90772c0,3.52018 2.93368,6.45386 6.45386,6.45386h12.90772c3.52018,0 6.45386,-2.93368 6.45386,-6.45386v-12.90772c0,-3.52018 -2.93368,-6.45386 -6.45386,-6.45386zM44.70598,49.85837h10.32618v10.32618h-10.32618zM74.39375,52.43992c-1.3965,-0.01975 -2.69545,0.71396 -3.39946,1.92018c-0.70401,1.20622 -0.70401,2.69806 0,3.90428c0.70401,1.20622 2.00296,1.93993 3.39946,1.92018h20.65236c1.3965,0.01975 2.69545,-0.71396 3.39946,-1.92018c0.70401,-1.20622 0.70401,-2.69806 0,-3.90428c-0.70401,-1.20622 -2.00296,-1.93993 -3.39946,-1.92018zM110.53538,52.43992c-1.3965,-0.01975 -2.69545,0.71396 -3.39946,1.92018c-0.70401,1.20622 -0.70401,2.69806 0,3.90428c0.70401,1.20622 2.00296,1.93993 3.39946,1.92018h20.65236c1.3965,0.01975 2.69545,-0.71396 3.39946,-1.92018c0.70401,-1.20622 0.70401,-2.69806 0,-3.90428c-0.70401,-1.20622 -2.00296,-1.93993 -3.39946,-1.92018zM43.41521,73.09228c-3.52018,0 -6.45386,2.93368 -6.45386,6.45386v12.90772c0,3.52018 2.93368,6.45386 6.45386,6.45386h12.90772c3.52018,0 6.45386,-2.93368 6.45386,-6.45386v-12.90772c0,-3.52018 -2.93368,-6.45386 -6.45386,-6.45386zM44.70598,80.83691h10.32618v10.32618h-10.32618zM74.39375,83.41846c-1.3965,-0.01975 -2.69545,0.71396 -3.39946,1.92018c-0.70401,1.20622 -0.70401,2.69806 0,3.90428c0.70401,1.20622 2.00296,1.93993 3.39946,1.92018h20.65236c1.3965,0.01975 2.69545,-0.71396 3.39946,-1.92018c0.70401,-1.20622 0.70401,-2.69806 0,-3.90428c-0.70401,-1.20622 -2.00296,-1.93993 -3.39946,-1.92018zM110.53538,83.41846c-1.3965,-0.01975 -2.69545,0.71396 -3.39946,1.92018c-0.70401,1.20622 -0.70401,2.69806 0,3.90428c0.70401,1.20622 2.00296,1.93993 3.39946,1.92018h20.65236c1.3965,0.01975 2.69545,-0.71396 3.39946,-1.92018c0.70401,-1.20622 0.70401,-2.69806 0,-3.90428c-0.70401,-1.20622 -2.00296,-1.93993 -3.39946,-1.92018zM43.41521,104.07081c-3.52018,0 -6.45386,2.93368 -6.45386,6.45386v12.90772c0,3.52018 2.93368,6.45386 6.45386,6.45386h12.90772c3.52018,0 6.45386,-2.93368 6.45386,-6.45386v-12.90772c0,-3.52018 -2.93368,-6.45386 -6.45386,-6.45386zM44.70598,111.81545h10.32618v10.32618h-10.32618zM74.39375,114.39699c-1.3965,-0.01975 -2.69545,0.71396 -3.39946,1.92018c-0.70401,1.20622 -0.70401,2.69806 0,3.90428c0.70401,1.20622 2.00296,1.93993 3.39946,1.92018h20.65236c1.3965,0.01975 2.69545,-0.71396 3.39946,-1.92018c0.70401,-1.20622 0.70401,-2.69806 0,-3.90428c-0.70401,-1.20622 -2.00296,-1.93993 -3.39946,-1.92018zM110.53538,114.39699c-1.3965,-0.01975 -2.69545,0.71396 -3.39946,1.92018c-0.70401,1.20622 -0.70401,2.69806 0,3.90428c0.70401,1.20622 2.00296,1.93993 3.39946,1.92018h20.65236c1.3965,0.01975 2.69545,-0.71396 3.39946,-1.92018c0.70401,-1.20622 0.70401,-2.69806 0,-3.90428c-0.70401,-1.20622 -2.00296,-1.93993 -3.39946,-1.92018z"></path></g></g></g></svg>
+          </button>
+      </tr>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator class="space" [pageSizeOptions]="[10, 20, 35, 100]"></mat-paginator>
+
+</div>

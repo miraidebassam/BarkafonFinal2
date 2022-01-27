@@ -1,0 +1,62 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "route": "clients",
+      "name": "clients",
+      "type": "sub",
+      "icon": "people_alt",
+      "children": [
+        {
+          "route": "client",
+          "name": "client",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "documents",
+      "name": "documents",
+      "type": "sub",
+      "icon": "assignment",
+      "children": [
+        {
+          "route": "all",
+          "name": "document",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "dossier",
+      "name": "dossier",
+      "type": "sub",
+      "icon": "folder",
+      "children": [
+        {
+          "route": "lister",
+          "name": "lister",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "utilisateur",
+      "name": "utilisateur",
+      "type": "sub",
+      "icon": "person",
+      "children": [
+        {
+          "route": "lister",
+          "name": "lister",
+          "type": "link"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+/* import { ProfileService } from '../core/service/profile.service';
+import { ClientService } from '../core/service/client.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from '@core/authentication/interface';
+import { Profiles } from '@core/models/profiles';
+import { NotifService } from '@core/service/notif.service';
+
+@Component({
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.scss']
+})
+export class UpdateComponent implements OnInit {
+
+  clientFormUpdate: FormGroup;
+  roles: Profiles;
+
+  constructor(private fb: FormBuilder,
+    private notifService: NotifService,
+    public dialogRefUpdate: MatDialogRef<UpdateComponent>,private profil: ProfileService,
+    private userService: ClientService,@Inject(MAT_DIALOG_DATA) public user: User) { }
+
+  ngOnInit(): void {
+
+    this.allProfiles();
+
+    this.clientFormUpdate = this.fb.group({
+      id: [this.user.id, Validators.required],
+      login: [this.user.login, Validators.required],
+      nom: [this.user.nom, Validators.required],
+      prenom: [this.user.prenom, Validators.required],
+      profile: [this.user.profile, Validators.required],
+      telephone: [this.user.telephone],
+      email: [this.user.email, Validators.required],
+      etat: [this.user.etat, Validators.required],
+    });
+  }
+
+  modifierClient(){
+    this.userService.clientModifier(this.clientFormUpdate.value).subscribe((result: User)=>{
+      if(result !== null){
+        this.notifService.showSuccess("Modification effectué avec succès!!!")
+      }
+    });
+    this.onClose();
+  }
+
+  onClose() {
+    this.clientFormUpdate.reset();
+    this.dialogRefUpdate.close();
+  }
+
+  allProfiles(){
+    return this.profil.listProfiles().subscribe(result=>{
+      this.roles = result;
+    })
+  }
+
+}
+ */

@@ -1,0 +1,56 @@
+  <h2>Informations du partenaire</h2>
+  <form class="per-form" [formGroup]="clientFormAddNew">
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Nom du partenaire</mat-label>
+      <input formControlName="nom" matInput placeholder="Entrer le nom du client" maxlength="50" name="nom" />
+      <!-- <mat-error *ngIf="userFormAddNew.controls['nom'].invalid">Veuillez entrer le nom valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Prenom du partenaire</mat-label>
+      <input formControlName="prenom" matInput placeholder="Entrer le prenom du client" maxlength="50"name="prenom" />
+      <!-- <mat-error *ngIf="userFormAddNew.controls['prenom'].invalid">Veuillez entrer un prénom valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>NIF du partenaire</mat-label>
+      <input type="nif" mask formControlName="nif" matInput placeholder="Entrer le NIF du client" maxlength="50" name="nif" />
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Adresse du partenaire</mat-label>
+      <input formControlName="adresse" matInput placeholder="Entrer l'adresse du client" maxlength="50" name="adresse" />
+      <!-- <mat-error *ngIf="userFormAddNew.controls['login'].invalid">Veuillez saisir un identifiant valide</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Telephone du partenaire</mat-label>
+      <input type="telephone" mask formControlName="telephone" matInput placeholder="Entrer le telephone du client" maxlength="50" name="telephone" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Email du partenaire</mat-label>
+      <input formControlName="email" matInput placeholder="Entrer l'email du client" maxlength="50" name="email" />
+      <!-- <mat-error *ngIf="userFormAddNew.controls['email'].invalid">Veuillez saisir un e-mail valide</mat-error> -->
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill"class="width-75" style="margin-left: 5px; width: 32%;">
+      <mat-label>Selectionner l'etat</mat-label>
+      <mat-select formControlName="etat" panelClass="my-select-panel-class" name="etat">
+        <mat-option value="true">Activer</mat-option>
+        <mat-option value="false">Desactvier</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+
+<div style="margin-bottom: 10px; margin-top: 5px; float: right;">
+  <button mat-raised-button (click)="ajouteClient()" [disabled]="clientFormAddNew.invalid">
+    <mat-icon>add_circle_outline</mat-icon> Enregistrer le donnees
+  </button>
+</div>
+
