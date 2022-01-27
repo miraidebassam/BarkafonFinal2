@@ -40,7 +40,7 @@
 
       <button class="w-full" mat-raised-button color="primary"
               [disabled]="loginForm.invalid"
-              (click)="onSubmit()">{{'login.login' | translate}}</button>
+              (click)="loginAuth()">{{'login.login' | translate}}</button>
       
       <!-- <div class="m-t-16">{{'login.have_no_account' | translate}}?
         <a routerLink="/auth/register">{{'login.create_one' | translate}}</a>
